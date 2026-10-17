@@ -91,18 +91,18 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // NAVIGATION
-document.querySelectorAll("[data-page]").forEach(button => {
-  button.addEventListener("click", () => {
-    showPage(button.dataset.page);
+
+  all("[data-page]").forEach(button => {
+    button.addEventListener("click", () => {
+      showPage(button.dataset.page);
+    });
   });
-});
 
-const menuToggle = document.getElementById("menuToggle");
+  $("menuToggle")?.addEventListener("click", () => {
+    $("mainNav")?.classList.toggle("open");
+  });
 
-menuToggle?.addEventListener("click", () => {
-  document.getElementById("mainNav")?.classList.toggle("open");
-});
-  //DASHBOARD 
+  // DASHBOARD
 
   function accuracy() {
     return state.progress.attempted
@@ -137,7 +137,7 @@ menuToggle?.addEventListener("click", () => {
   }
 
   function setText(id, value) {
-    if ($(id)) $(id).textContent = value;
+    if ($(id))$(id).textContent = value;
   }
 
   $("saveDailyTargetBtn")?.addEventListener("click", () => {
@@ -703,8 +703,7 @@ menuToggle?.addEventListener("click", () => {
     const blob = new Blob(
       [JSON.stringify(backup, null, 2)],
       { type: "application/json" }
-    
-"use strict";
+ "use strict";
 
 document.addEventListener("DOMContentLoaded", () => {
   const DATA = window.IQBAL_DATA;
@@ -843,7 +842,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function setText(id, value) {
-    if ($(id)) $(id).textContent = value;
+    if ($(id))$(id).textContent = value;
   }
 
   $("saveDailyTargetBtn")?.addEventListener("click", () => {
@@ -1443,7 +1442,7 @@ document.addEventListener("DOMContentLoaded", () => {
         save("project_iqbal_progress", state.progress);
       }
 
-      if (Number.isFinite(backup.target) && backup.target > 0) {
+  if (Number.isFinite(backup.target) && backup.target > 0) {
         state.target = Math.floor(backup.target);
         save("project_iqbal_target", state.target);
       }
