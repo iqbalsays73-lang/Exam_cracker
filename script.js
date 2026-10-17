@@ -1,4 +1,5 @@
 "use strict";
+alert("script loaded")/
 
 document.addEventListener("DOMContentLoaded", () => {
   const DATA = window.IQBAL_DATA;
