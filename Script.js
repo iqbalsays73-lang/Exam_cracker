@@ -1442,7 +1442,7 @@ document.addEventListener("DOMContentLoaded", () => {
         save("project_iqbal_progress", state.progress);
       }
 
-  if (Number.isFinite(backup.target) && backup.target > 0) {
+      if (Number.isFinite(backup.target) && backup.target > 0) {
         state.target = Math.floor(backup.target);
         save("project_iqbal_target", state.target);
       }
