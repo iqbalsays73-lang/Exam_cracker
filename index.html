@@ -1,1 +1,510 @@
 
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1120">
+
+  <title>PROJECT IQBAL | Human × AI Exam Academy</title>
+
+  <meta name="description"
+        content="Free government exam preparation, syllabus, short tricks, practice questions and mock tests.">
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="Style.css">
+
+  <script src="Data.js" defer></script>
+  <script src="Script.js" defer></script>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="brand">
+      <div class="brand-logo">IQ</div>
+      <div>
+        <h1>PROJECT IQBAL</h1>
+        <p>Human × AI Exam Academy</p>
+      </div>
+    </div>
+
+    <button id="menuToggle"
+            class="menu-toggle"
+            type="button"
+            aria-label="Open navigation"
+            aria-expanded="false">
+      ☰
+    </button>
+
+    <nav id="mainNav" class="main-nav">
+      <button class="nav-btn active" data-page="home">Home</button>
+      <button class="nav-btn" data-page="exams">Exams</button>
+      <button class="nav-btn" data-page="subjects">Subjects</button>
+      <button class="nav-btn" data-page="practice">Practice</button>
+      <button class="nav-btn" data-page="tests">Mock Tests</button>
+      <button class="nav-btn" data-page="constitution">Constitution</button>
+      <button class="nav-btn" data-page="notes">My Notes</button>
+      <button class="nav-btn" data-page="progress">My Progress</button>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <!-- HOME -->
+    <section id="page-home" class="page active">
+      <div class="hero">
+        <span class="eyebrow">YOUR FREE LEARNING PLATFORM</span>
+
+        <h2>Seekho. Practice Karo.<br><span>Improve Karo.</span></h2>
+
+        <p>
+          Apni preparation ko ek naya direction do.
+          Concepts, short tricks, practice aur mock tests —
+          ek hi jagah.
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn btn-primary" data-page="exams">
+            Choose Your Exam →
+          </button>
+
+          <button class="btn btn-secondary" data-page="practice">
+            Start Practice
+          </button>
+        </div>
+      </div>
+
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">YOUR JOURNEY</span>
+          <h2>Preparation Dashboard</h2>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <article class="stat-card">
+          <span>Questions Attempted</span>
+          <strong id="homeAttempted">0</strong>
+        </article>
+
+        <article class="stat-card">
+          <span>Correct Answers</span>
+          <strong id="homeCorrect">0</strong>
+        </article>
+
+        <article class="stat-card">
+          <span>Accuracy</span>
+          <strong id="homeAccuracy">0%</strong>
+        </article>
+
+        <article class="stat-card">
+          <span>Tests Completed</span>
+          <strong id="homeTests">0</strong>
+        </article>
+      </div>
+
+      <article class="panel daily-panel">
+        <div>
+          <span class="eyebrow">DAILY TARGET</span>
+          <h3>Aaj ka study goal</h3>
+          <p id="dailyProgressText">Aaj ki preparation shuru karo!</p>
+        </div>
+
+        <div class="target-controls">
+          <label for="dailyTarget">Questions ka target</label>
+
+          <input id="dailyTarget"
+                 type="number"
+                 min="1"
+                 max="500"
+                 value="20">
+
+          <button id="saveDailyTargetBtn"
+                  class="btn btn-primary"
+                  type="button">
+            Save Target
+          </button>
+        </div>
+
+        <div class="progress-track">
+          <div id="dailyProgressBar" class="progress-fill"></div>
+        </div>
+      </article>
+
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">EXPLORE</span>
+          <h2>Learning Categories</h2>
+        </div>
+      </div>
+
+      <div class="category-grid">
+        <button class="category-card" data-page="subjects">
+          <span>📐</span>
+          <strong>Maths</strong>
+          <small>Concepts & Tricks</small>
+        </button>
+
+        <button class="category-card" data-page="subjects">
+          <span>🧩</span>
+          <strong>Reasoning</strong>
+          <small>Logic & Practice</small>
+        </button>
+
+        <button class="category-card" data-page="subjects">
+          <span>🌍</span>
+          <strong>GK / GS</strong>
+          <small>Knowledge & Revision</small>
+        </button>
+
+        <button class="category-card" data-page="constitution">
+          <span>🇮🇳</span>
+          <strong>Constitution</strong>
+          <small>Articles & Short Tricks</small>
+        </button>
+      </div>
+    </section>
+
+    <!-- EXAMS -->
+    <section id="page-exams" class="page">
+      <div class="page-heading">
+        <span class="eyebrow">FIND YOUR DESTINATION</span>
+        <h2>Choose Your Exam</h2>
+        <p>Apne target exam ko select karo.</p>
+      </div>
+
+      <input id="examSearch"
+             class="search-input"
+             type="search"
+             placeholder="Search SSC, PET, Police, Railway..."
+             aria-label="Search exams">
+
+      <div id="examCategories" class="filter-row">
+        <button class="filter-btn active" data-category="All">All</button>
+        <button class="filter-btn" data-category="SSC">SSC</button>
+        <button class="filter-btn" data-category="Police">Police</button>
+        <button class="filter-btn" data-category="Railway">Railway</button>
+        <button class="filter-btn" data-category="Banking">Banking</button>
+        <button class="filter-btn" data-category="Teaching">Teaching</button>
+        <button class="filter-btn" data-category="Other">Other</button>
+      </div>
+
+      <div id="examGrid" class="content-grid"></div>
+    </section>
+
+    <!-- SUBJECTS -->
+    <section id="page-subjects" class="page">
+      <div class="page-heading">
+        <span class="eyebrow">LEARN STEP BY STEP</span>
+        <h2 id="subjectsHeading">Subjects & Syllabus</h2>
+        <p id="subjectsExamName">Apna exam aur subject select karo.</p>
+      </div>
+
+      <input id="subjectSearch"
+             class="search-input"
+             type="search"
+             placeholder="Search subject or chapter..."
+             aria-label="Search subjects">
+
+      <div id="subjectGrid" class="content-grid"></div>
+
+      <div id="topicArea" class="panel hidden">
+        <button id="backToSubjects" class="text-btn" type="button">
+          ← Back to Subjects
+        </button>
+
+        <h3 id="currentSubjectTitle">Topics</h3>
+        <div id="topicList" class="topic-list"></div>
+      </div>
+
+      <article id="lessonArea" class="panel hidden">
+        <button id="backToTopics" class="text-btn" type="button">
+          ← Back to Topics
+        </button>
+
+        <h2 id="lessonTitle">Lesson</h2>
+        <div id="lessonBody" class="lesson-body"></div>
+
+        <div class="hero-actions">
+          <button id="markLessonBtn" class="btn btn-primary" type="button">
+            Mark as Completed
+          </button>
+
+          <button id="practiceTopicBtn" class="btn btn-secondary" type="button">
+            Practice This Topic
+          </button>
+        </div>
+      </article>
+    </section>
+
+    <!-- PRACTICE -->
+    <section id="page-practice" class="page">
+      <div class="page-heading">
+        <span class="eyebrow">TEST YOUR KNOWLEDGE</span>
+        <h2>Practice Arena</h2>
+        <p>Questions solve karo aur apni accuracy improve karo.</p>
+      </div>
+
+      <article class="panel setup-panel">
+        <label for="practiceSubject">Subject</label>
+        <select id="practiceSubject">
+          <option value="All">All Subjects</option>
+          <option value="Maths">Maths</option>
+          <option value="Reasoning">Reasoning</option>
+          <option value="History">History</option>
+          <option value="Geography">Geography</option>
+          <option value="Polity">Polity</option>
+          <option value="Science">Science</option>
+          <option value="Economy">Economy</option>
+          <option value="Hindi">Hindi</option>
+          <option value="English">English</option>
+          <option value="Computer">Computer</option>
+          <option value="GK">GK</option>
+        </select>
+
+        <label for="practiceDifficulty">Difficulty</label>
+        <select id="practiceDifficulty">
+          <option value="All">All Levels</option>
+          <option value="Easy">Easy</option>
+          <option value="Medium">Medium</option>
+          <option value="Hard">Hard</option>
+        </select>
+
+        <label for="practiceCount">Questions</label>
+        <select id="practiceCount">
+          <option value="10">10 Questions</option>
+          <option value="20">20 Questions</option>
+          <option value="50">50 Questions</option>
+          <option value="all">All Available Questions</option>
+        </select>
+
+        <button id="startPracticeBtn" class="btn btn-primary" type="button">
+          Start Practice →
+        </button>
+      </article>
+
+      <div id="quizArea" class="panel hidden">
+        <div class="quiz-top">
+          <span id="quizSubjectLabel">Practice</span>
+          <span id="quizQuestionCounter">Question 1</span>
+        </div>
+
+        <div class="progress-track">
+          <div id="quizProgressBar" class="progress-fill"></div>
+        </div>
+
+        <div class="question-meta">
+          <span id="questionDifficulty"></span>
+          <span id="questionExamLabel"></span>
+        </div>
+
+        <h3 id="questionText"></h3>
+
+        <div id="questionOptions" class="options-list"></div>
+
+        <div id="answerFeedback" class="answer-feedback" aria-live="polite"></div>
+
+        <div class="quiz-actions">
+          <button id="skipQuestionBtn" class="btn btn-secondary" type="button">
+            Skip
+          </button>
+
+          <button id="nextQuestionBtn" class="btn btn-primary" type="button">
+            Next Question →
+          </button>
+        </div>
+      </div>
+
+      <div id="quizResults" class="panel hidden">
+        <span class="eyebrow">PRACTICE COMPLETED</span>
+        <h2>Your Result</h2>
+
+        <div class="stats-grid">
+          <article class="stat-card">
+            <span>Attempted</span>
+            <strong id="resultAttempted">0</strong>
+          </article>
+
+          <article class="stat-card">
+            <span>Correct</span>
+            <strong id="resultCorrect">0</strong>
+          </article>
+
+          <article class="stat-card">
+            <span>Accuracy</span>
+            <strong id="resultAccuracy">0%</strong>
+          </article>
+        </div>
+
+        <p id="resultMessage"></p>
+
+        <button id="restartPracticeBtn" class="btn btn-primary" type="button">
+          Practice Again
+        </button>
+      </div>
+    </section>
+
+    <!-- MOCK TESTS -->
+    <section id="page-tests" class="page">
+      <div class="page-heading">
+        <span class="eyebrow">EXAM SIMULATION</span>
+        <h2>Mock Test Centre</h2>
+        <p>Timed tests aur exam-style practice.</p>
+      </div>
+
+      <div id="mockTestGrid" class="content-grid"></div>
+
+      <article class="panel">
+        <h3>Test History</h3>
+        <div id="testHistory"></div>
+      </article>
+    </section>
+
+    <!-- CONSTITUTION -->
+    <section id="page-constitution" class="page">
+      <div class="page-heading">
+        <span class="eyebrow">INDIAN POLITY SPECIAL</span>
+        <h2>Constitution Mastery 🇮🇳</h2>
+        <p>Important Articles, Schedules aur memory tricks.</p>
+      </div>
+
+      <input id="constitutionSearch"
+             class="search-input"
+             type="search"
+             placeholder="Search Articles, Schedules, topics..."
+             aria-label="Search Constitution topics">
+
+      <div id="constitutionGrid" class="content-grid"></div>
+    </section>
+
+    <!-- NOTES -->
+    <section id="page-notes" class="page">
+      <div class="page-heading">
+        <span class="eyebrow">YOUR PERSONAL LIBRARY</span>
+        <h2>My Notes</h2>
+        <p>Apne revision notes save karo.</p>
+      </div>
+
+      <article class="panel">
+        <form id="noteForm">
+          <input id="noteId" type="hidden">
+
+          <label for="noteTitle">Note Title</label>
+          <input id="noteTitle" type="text" maxlength="120"
+                 placeholder="e.g. Important Maths Formulas" required>
+
+          <label for="noteSubject">Subject</label>
+          <input id="noteSubject" type="text" maxlength="60"
+                 placeholder="e.g. Maths" required>
+
+          <label for="noteContent">Your Notes</label>
+          <textarea id="noteContent" rows="6" maxlength="20000"
+                    placeholder="Yahan apne notes likho..." required></textarea>
+
+          <div class="hero-actions">
+            <button id="saveNoteBtn" class="btn btn-primary" type="submit">
+              Save Note
+            </button>
+
+            <button id="cancelEditBtn" class="btn btn-secondary hidden"
+                    type="button">
+              Cancel Edit
+            </button>
+          </div>
+        </form>
+      </article>
+
+      <input id="noteSearch"
+             class="search-input"
+             type="search"
+             placeholder="Search saved notes..."
+             aria-label="Search notes">
+
+      <div id="notesList" class="content-grid"></div>
+    </section>
+
+    <!-- PROGRESS -->
+    <section id="page-progress" class="page">
+      <div class="page-heading">
+        <span class="eyebrow">YOUR IMPROVEMENT</span>
+        <h2>My Progress</h2>
+        <p>Apni preparation ko track karo.</p>
+      </div>
+
+      <div class="stats-grid">
+        <article class="stat-card">
+          <span>Attempted</span>
+          <strong id="progressAttempted">0</strong>
+        </article>
+
+        <article class="stat-card">
+          <span>Correct</span>
+          <strong id="progressCorrect">0</strong>
+        </article>
+
+        <article class="stat-card">
+          <span>Accuracy</span>
+          <strong id="progressAccuracy">0%</strong>
+        </article>
+      </div>
+
+      <article class="panel">
+        <h3>Topic Completion</h3>
+        <div class="progress-track">
+          <div id="topicProgressBar" class="progress-fill"></div>
+        </div>
+        <p id="topicProgressText">Abhi koi topic complete nahi hua.</p>
+      </article>
+
+      <article class="panel">
+        <h3>Practice History</h3>
+        <div id="practiceHistory"></div>
+      </article>
+
+      <article class="panel">
+        <h3>Backup & Restore</h3>
+        <p>Apne saved progress ka backup download ya restore karo.</p>
+
+        <div class="hero-actions">
+          <button id="exportDataBtn" class="btn btn-primary" type="button">
+            Export Backup
+          </button>
+
+          <label class="btn btn-secondary file-label" for="importDataFile">
+            Import Backup
+          </label>
+
+          <input id="importDataFile" type="file" accept=".json,application/json"
+                 class="visually-hidden">
+        </div>
+
+        <button id="resetProgressBtn" class="btn btn-danger" type="button">
+          Reset Progress
+        </button>
+      </article>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="brand footer-brand">
+      <div class="brand-logo">IQ</div>
+      <div>
+        <h2>PROJECT IQBAL</h2>
+        <p>Human × AI Exam Academy</p>
+      </div>
+    </div>
+
+    <p>Seekho · Practice Karo · Improve Karo</p>
+    <p class="footer-small">
+      Free learning platform. Always verify official exam notifications and syllabi.
+    </p>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+</body>
+            </html>
