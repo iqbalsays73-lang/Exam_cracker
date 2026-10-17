@@ -65,15 +65,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  function showPage(page) {
-    state.page = page;
-
-    all("[data-page]").forEach(button => {
-      button.classList.toggle(
-        "active",
-        button.dataset.page === page
-      );
-    });
+  function showPage(pageId) {
+  document.querySelectorAll('.page').forEach(page => {
+    page.classList.remove('active');
+  });
+  const targetPage = document.getElementById(pageId) || document.querySelector(`[data-page="${pageId}"]`);
+  if (targetPage) {
+    targetPage.classList.add('active');
+  }
+  }
+  
 
     all('[id^="page-"]').forEach(section => {
       section.hidden = section.id !== `page-${page}`;
