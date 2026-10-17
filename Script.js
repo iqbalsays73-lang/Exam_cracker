@@ -91,18 +91,18 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // NAVIGATION
-
-  all("[data-page]").forEach(button => {
-    button.addEventListener("click", () => {
-      showPage(button.dataset.page);
-    });
+document.querySelectorAll("[data-page]").forEach(button => {
+  button.addEventListener("click", () => {
+    showPage(button.dataset.page);
   });
+});
 
-  $("menuToggle")?.addEventListener("click", () => {
-    $("mainNav")?.classList.toggle("open");
-  });
+const menuToggle = document.getElementById("menuToggle");
 
-  // DASHBOARD
+menuToggle?.addEventListener("click", () => {
+  document.getElementById("mainNav")?.classList.toggle("open");
+});
+  //DASHBOARD 
 
   function accuracy() {
     return state.progress.attempted
