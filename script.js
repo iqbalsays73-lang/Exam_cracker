@@ -90,8 +90,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (page === "progress") renderProgress();
     if (page === "tests") renderTests();
     if (page === "constitution") renderConstitution();
-  }
-
   // NAVIGATION
 
   all("[data-page]").forEach(button => {
